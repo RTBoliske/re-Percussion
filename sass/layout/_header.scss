@@ -1,0 +1,29 @@
+.header {
+    height: 100vh;
+	background-image: url(../img/percussion-instruments_pc-jacob-wade_1900x600.jpg);
+	background-size: cover;
+	background-position: top;
+	position: relative;
+
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+           only screen and (-webkit-min-device-pixel-ration: 2) and (min-width: 37.5em),
+           only screen and (min-width: 125em) {
+                
+    }
+
+    //for future implementation when logo is added
+    /* &__logo-box {
+               
+    }
+    &__logo {
+       
+    } */
+    
+    &__text-box {
+        position: absolute;
+	    top: 60%;
+	    left: 55%;
+	    transform: translate(-50%, -50%); 
+	    text-align: center;
+    }    
+}

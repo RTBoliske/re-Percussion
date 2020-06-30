@@ -1,0 +1,61 @@
+.footer {
+
+
+    @include respond (tab-port) {
+    
+    }
+
+    // for future implementation - when a logo is added
+    /* &__logo-box {
+       
+
+        @include respond (tab-port) {
+           
+        }
+    }
+
+    &__logo {
+      
+    } */
+
+    &__navigation {
+      
+
+        @include respond (tab-port) {
+         
+        }
+    }
+
+    &__list {
+        list-style: none;
+    }
+
+    &__item {
+        display: inline-block;
+
+        &:not(:last-child) {
+            
+        }
+    }
+
+    &__link {
+        &:link,
+        &:visited {
+          
+        }
+
+        &:hover,
+        &:active {
+        
+        } 
+
+    }
+
+    &__copyright {
+       
+
+        @include respond (tab-port) {
+          
+        }
+    }
+}
