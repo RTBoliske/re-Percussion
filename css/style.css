@@ -1,0 +1,649 @@
+/* default colors 
+$color-primary: #ff9900 ;
+$color-primary-light: #ffb84d;
+$color-primary-dark: #b36b00;
+
+$color-secondary: #336666;
+$color-secondary-light: #55aaaa ;
+$color-secondary-dark: #224444;
+
+$color-tertiary: #1a66ff ;
+$color-tertiary-light: #6699ff;
+$color-tertiary-dark: #0044cc;
+
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+
+$color-drum-head: #ffebcc;
+*/
+
+/* default font sizes
+$default-font-size: 1.6rem;
+$default-font-size-smaller: 1.4rem;
+$default-font-size-larger: 1.8rem;
+*/
+
+/* default grid settings
+$grid-width: 120rem;
+$gutter-vertical: 8rem;
+$gutter-vertical-small: 6rem;
+$gutter-horizontal: 6rem;
+/*
+
+/* overall site reset */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 10px;
+}
+
+/* set global font parameters*/
+body {
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #777;
+
+    /* white padding around entire body 
+    padding: 10px; */
+}
+
+/* grid styles */
+.row {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.row:not(:last-child) {
+    margin-bottom: 80px;
+}
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.row [class^="col-"] {
+    float: left;
+}
+
+.row [class^="col-"]:not(:last-child) {
+    margin-right: 60px;
+}
+
+.row .col-1-of-2 {
+    
+    width: calc((100% - 60px) / 2);
+}
+
+.row .col-1-of-3 {
+    width: calc((100% - 2 * 60px) / 3); 
+}
+
+.row .col-1-of-4 {
+    width: calc((100% - 3 * 60px) / 4); 
+}
+
+.row .col-2-of-3 {
+    width: calc( 2 * ((100% - 2 * 60px) / 3) + 60px); 
+}
+
+.row .col-2-of-4 {
+    width: calc( 2 * ((100% - 3 * 60px) / 4) + 60px);
+}
+
+.row .col-3-of-4 {
+    width: calc( 3 * ((100% - 3 * 60px) / 4) + 2 * (60px)); 
+}
+
+/* utility styles */
+.u-center-text { text-align: center !important; }
+
+.u-margin-bottom-small { margin-bottom: 15px !important; }
+.u-margin-bottom-medium { margin-bottom: 40px !important; }
+.u-margin-bottom-big { margin-bottom: 80px !important; }
+
+.u-margin-top-medium {margin-top: 40px !important; }
+.u-margin-top-big { margin-bottom: 80px !important; }
+.u-margin-top-huge { margin-bottom: 100px !important; }
+
+/* section music */
+.section-music {
+    background-image: linear-gradient( 
+        to right bottom, 
+        rgba(247, 247, 247, 0.8), 
+        rgba(255, 184, 77, 0.8));
+    padding: 150px 0;
+}
+
+/* section templates */
+.section-templates {
+    background-image: linear-gradient( 
+        to right bottom, 
+        rgba(247, 247, 247, 0.8), 
+        rgba(51, 102, 102, 0.8));
+    padding: 100px 0 300px 0;
+    margin-top: 0;
+}
+
+/* section tutorials */
+.section-tutorials {
+    background-image: linear-gradient( 
+        to right bottom, 
+        rgba(247, 247, 247, 0.8), 
+        rgba(255, 184, 77, 0.8));
+    padding: 150px 0;
+    margin-top: 0; 
+}
+
+/* navigation styles */
+.navigation__checkbox {
+    display: none;
+}
+
+.navigation__button {
+    background-color: #ffebcc;
+    height: 60px;
+    width: 60px;
+    position: fixed;
+    top: 25px;
+    right: 50px;
+    border-radius: 50%;
+    z-index: 2000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+    text-align: center;
+    cursor: pointer;
+}
+
+.navigation__background {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    position: fixed;
+    top: 25px;
+    right: 50px;
+    background-image: radial-gradient(#ffb84d, #ffb84d);
+    z-index: 1000;
+    transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.navigation__nav {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1500;
+
+    opacity: 0;
+    width: 0;
+    transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+} 
+
+.navigation__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+    width: 100%;
+}
+
+.navigation__item {
+    margin: 10px;
+}
+
+.navigation__link:link,
+.navigation__link:visited {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 400;
+    padding: 10px 20px;
+    color: #f7f7f7;
+    text-decoration: none;
+
+    background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+    background-size: 235%;
+    transition: all .4s;
+}
+
+.navigation__link:link span,
+.navigation__link:visited span {
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.navigation__link:hover,
+.navigation__link:active {
+    background-position: 100%;
+    color: #6699ff;
+    border-radius: 5px;
+    transform: translateX(10px);
+}
+
+.navigation__checkbox:checked ~ .navigation__background {
+    transform: scale(80);
+}
+
+.navigation__checkbox:checked ~ .navigation__nav {
+    opacity: 1;
+    width: 100%;
+}
+
+.navigation__icon {
+    position: relative;
+    margin-top: 30px;
+}
+
+.navigation__icon,
+.navigation__icon::before,
+.navigation__icon::after {
+    width: 30px;
+    height: 2px;
+    background-color: #b36b00;
+    display: inline-block;
+}
+
+.navigation__icon::before,
+.navigation__icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    transition: all .2s;
+}
+
+.navigation__icon::before { top: -8px; }
+.navigation__icon::after { top: 8px; }
+
+.navigation__button:hover .navigation__icon::before {
+    top: -1rem;
+}
+
+.navigation__button:hover .navigation__icon::after {
+    top: 1rem;
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+    background-color: transparent;
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+}
+
+.header {
+    height: 100vh;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(255, 184, 77, 0.4), 
+        rgba(179, 107, 0, 0.4)), 
+        url(../img/percussion-instruments_pc-jacob-wade_1900x600.jpg);
+    background-size: cover;
+    background-position: top;
+
+    position: relative;
+}
+
+.text-box {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*CSS for future logo, left uncommented since logo image not yet available */
+.logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+}
+
+.logo {
+    /* height placeholder */
+    height: 3.5rem; 
+}
+
+/* heading and type styles */
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 50px;   
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 700;
+    letter-spacing: 18px;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.heading-secondary {
+    font-size: 45px;   
+    font-weight: 900;
+    display: inline-block;    
+    
+    color: #333;
+    letter-spacing: 2px;
+    transition: all .2s;
+}
+
+.heading-tertiary {
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.heading__page-content {
+    font-size: 45px;   
+    font-weight: 900;
+    text-transform: uppercase;
+    display: inline-block;    
+    
+    color: #b36b00;
+    letter-spacing: 2px;
+    transition: all .2s;
+}
+
+.paragraph {
+    font-size: 18px;
+}
+
+.paragraph:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+/* buttons */
+.btn,
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+   
+    display: inline-block;
+
+    border-radius: 100px;
+    cursor: pointer;
+    /* font-size: 14px; */
+    letter-spacing: 3px;
+    transition: all .2s;
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);   
+}
+
+.btn:hover::after {   
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0);
+
+    background-color: #ffebcc;
+    color: #000;
+}
+
+.btn-white {
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn:active,
+.btn:focus {
+    background-color: #ffebcc;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn--animated {
+    animation: moveInBottom .5s ease-out .75;
+    animation-fill-mode: backwards;
+  }
+
+.btn-text:link, .btn-text:visited {
+    font-size: 14px;
+    color: #1a66ff;
+    display: inline-block;
+    text-decoration: none;
+    padding: 3px 10px; 
+    transition: all .2s;
+}
+  
+.btn-text:hover {
+    background-color: #ffebcc;
+    color: #1a66ff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+  
+.btn-text:active {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(0);
+}
+
+/* footer styles */
+.footer {
+    background-color: #333;
+    padding: 25px 0;
+    font-size: 14px;
+    color: #f7f7f7;
+}
+
+.footer__navigation {
+    border-top: 1px solid #777;
+    padding-top: 20px;
+    display: inline-block;    
+}
+
+.footer__list {
+    list-style: none;
+}
+
+.footer__item {
+    display: inline-block;
+}
+
+.footer__item:not(:last-child) {
+    margin-right: 15px;
+}
+
+.footer__link,
+.footer__link:link,
+.footer__link:visited {
+        color: #f7f7f7;
+        background-color: #333;
+        text-decoration: none;
+        display: inline-block;
+        transition: all .2s;
+}
+
+.footer__link:hover,
+.footer__link:active {
+        background-position: 100%;
+        color: #f7f7f7;
+        transform: translateX(1rem);
+}
+
+.footer__copyright {
+    border-top: 1px solid #777;
+    padding-top: 20px;
+    width: 60%;
+    float: right;
+}
+
+/* composition - music section photos */
+.composition {
+    position: relative;
+}
+
+.composition__photo {
+    width: 55%;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    position: absolute;
+    z-index: 10;
+  }
+
+.composition__photo--p1 {
+    left: 50px;
+    top: 0;
+}
+  
+.composition__photo--p2 {
+    right: -50px;
+    top: 150px;
+}
+  
+.composition__photo--p3 {
+    left: 70px;
+    top: 300px;
+}
+
+/* tutorial section styles */
+.tutorial {
+    width: 90%;
+    margin: 0 auto;
+    padding: 60px;
+
+    font-size: 16px;
+}
+
+.tutorial__img {
+    height: 100%;
+}
+
+/* individual generic page styles */
+/* .page-content {
+    background-color: #ffebcc;
+} */
+
+.page-banner {
+    height: 30vh; 
+
+    padding: 80px 0 40px 0;
+    position: relative;
+}
+
+.page-banner__bg-img {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(255, 184, 77, 0.4), 
+        rgba(179, 107, 0, 0.4)), 
+        url(../img/percussion-ensemble.jpg); 
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.page-links {
+    position: relative;
+    z-index: 1;
+    background-color: #ffebcc;
+    margin: 0 0 40px 0;
+
+    text-decoration: none;
+}
+
+.page-links li {
+   
+    /* border-top: 1px solid rgb(244, 223, 138); */
+    list-style: none;
+  }
+  
+  .page-links li:first-child {
+    border-top: none;
+  }
+
+.page-links li a {
+    display: block;
+    text-align: center;
+    padding: 17px 10px;
+    text-decoration: none;
+    color: #777;
+    transition: all .3s;
+  }
+  
+  .page-links li a:hover {
+    color: #777;
+    background-color: #ffebcc;
+  }
+
+.page-links__title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #1a66ff;
+    /* color: #FFF;     */
+}
+
+.page-links__title a {
+    color: #fff;
+    text-decoration: none;
+    background-color: #1a66ff;
+}
+
+.page-links__list {
+    list-style: none;
+}
+
+.page-links__active,
+.page-links .current_page_item {
+text-align: center;
+background-color: rgb(244, 231, 180);
+color: #0D3B66;
+font-weight: 700;
+} 
+
